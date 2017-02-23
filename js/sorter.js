@@ -54,10 +54,6 @@ samples.slice(10,15).forEach( function(sample) {
     addToList(sample, list3 );
 });
 
-var sortable1 = Sortable.create(list1);
-var sortable2 = Sortable.create(list2);
-var sortable3 = Sortable.create(list3);
-
 shuffle(samples)
 
 var list4 = document.getElementById('content_list1');
@@ -74,8 +70,12 @@ samples.slice(10,15).forEach( function(sample) {
     addToList(sample, list6 );
 });
 
-var sortable4 = Sortable.create(list4);
-var sortable5 = Sortable.create(list5);
-var sortable6 = Sortable.create(list6);
 
+var sortable1 = Sortable.create(list1, {onUpdate: updateOrder});
+var sortable2 = Sortable.create(list2, {onUpdate: updateOrder});
+var sortable3 = Sortable.create(list3, {onUpdate: updateOrder});
+var sortable4 = Sortable.create(list4, {onUpdate: updateOrder});
+var sortable5 = Sortable.create(list5, {onUpdate: updateOrder});
+var sortable6 = Sortable.create(list6, {onUpdate: updateOrder});
 
+lists_ready=true;
