@@ -2,42 +2,103 @@
 <head>
 <style>
 body {background-color: powderblue;}
+
 h1   {color: blue;}
+
+.allsamples, .listwrapper, .finalorder {
+    width: 300px;
+    display: inline-block;
+    border: 1px dotted black;
+    background-color: aliceblue;
+    padding: 5px; }
+}
+
 p    {color: red;}
+
+p.center {text-align: center;}
+
 ul   {border : 1px solid black;
       background : white;
       padding : 10px;}
-li   {padding : 5px;
+
+.sample  {padding : 5px;
       margin: 5px;
       background : yellow;
-      border : 1px dotted black;} 
+      border : 1px dotted black;}
+
+.samplediv  {display: inline-block; margin-bottom: 25px;}
+
+
 </style>
 </head>
 <body>
+<h2>Kaikki näytteet</h2>
 
-<p>
-FANTASTIC!
-<ul id="ok_items">
-<li>Best</li>
-<li>Average</li>
-<li>Medium</li>
-<li>Mediocre</li>
-<li>Median</li>
-<li>Not too bad</li>
+<div id="allsamples">
+</div>
+
+
+<h2>Järjestä näytteet hyvyysjärjestykseen lausumisen mukaan:</h2>
+
+<div class="listwrapper">
+  <p class=center>Paras</p>
+  <ul id="phonetics_list1">
+  </ul>
+  <p class=center>Huonoin</p>
+</div>
+
+<div class="listwrapper">
+  <p class=center>Paras</p>
+  <ul id="phonetics_list2">
+  </ul>
+  <p class=center>Huonoin</p>			    
+</div>
+
+
+<div class="listwrapper">
+  <p class=center>Paras</p>
+  <ul id="phonetics_list3">
+  </ul>
+  <p class=center>Huonoin</p>
+</div>
+
+
+<h2>Järjestä näytteet hyvyysjärjestykseen sisällön mukaan:</h2>
+
+<div class="listwrapper">
+<p class=center>Paras</p>
+<ul id="content_list1">
 </ul>
-<p>
-NOT SO :(
-</p>
+<p class=center>Huonoin</p>
+</div>
 
-<p>
-FAKE SENTENCES (HOMBRES SO BAD YOU CANT EVEN GRADE THEM!):
-<ul id="bad_items">
-  <li>Inhumanly bad</li>
+
+<div class="listwrapper">
+<p class=center>Paras</p>
+<ul id="content_list2">
 </ul>
+<p class=center>Huonoin</p>
+</div>
 
 
+<div class="listwrapper">
+<p class=center>Paras</p>
+<ul id="content_list3">
+</ul>
+<p class=center>Huonoin</p>
+</div>
+
+
+<h2>Uusi uljas järjestys</h2>
+
+
+<div id="finalorder">
+<ul>
+</ul>
+</div>
 
 <script src="node_modules/sortablejs/Sortable.js"></script>
+<script src="js/shuffle.js"></script>
 <script src="js/sorter.js"></script>
 
 </body>
