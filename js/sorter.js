@@ -14,7 +14,12 @@ var updateAllSamplesList = function () {
 	
 	new_content = document.createElement("span");
 	//new_content.className = "sample";
-	new_content.innerHTML = sample.text;
+	if (sample.score > -100) {
+	    new_content.innerHTML = sample.text;
+	}
+	else {
+	    new_content.innerHTML = "<strike>" + sample.text + "<strike>";
+	}
 	
 	new_content2 = document.createElement("span");
 	new_content2.className = "samplescore";
@@ -41,27 +46,41 @@ var addToList = function(sample, list) {
 
 
 var list1 = document.getElementById('phonetics_list1');
+var rejected_list1 = document.getElementById('rejected_list1');
+
 var sample_index=[ 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14 ];
 var sliceindex = 0;
 var round = 0;
 var test = 0;
 
 var updateSortingList = function () {
-    if (sliceindex + 5 < samples.length) {
-	shuffle(sample_index);
-	sliceindex = 0;
-	round += 1;	
-	document.getElementById('round').innerHTML=round;
-    }
+    //if (sliceindex + 5 < samples.length) {
+    shuffle(sample_index);
+    //sliceindex = 0;
+    //round += 1;	
+    //document.getElementById('round').innerHTML=round;
+    //}
     test += 1;
-    sample_index.slice(sliceindex,sliceindex+5).forEach( function(index) {
-	addToList(samples[index], list1 );
-    });
+    //sample_index.slice(sliceindex,sliceindex+5).forEach( function(index) {
+    //addToList(samples[index], list1 );
+    //});
+    index=0
+    listcounter=0;
+    while (listcounter < 5) {
+	if (samples[index].score > -100) {
+	    addToList(samples[index], list1 );
+	    listcounter++;
+	}
+	index++
+	if (index > samples.length)
+	    break;
+    }
 
     document.getElementById('test').innerHTML=test;
 }
 
 updateSortingList()
 
-var sortable1 = Sortable.create(list1);
+var sortable1 = Sortable.create(list1, {group: "all"});
+var sortable2 = Sortable.create(rejected_list1, {group: "all"});
 lists_ready=true;

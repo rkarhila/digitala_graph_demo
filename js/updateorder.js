@@ -12,9 +12,6 @@ var updateOrder = function(samples) {
 
 	while (list1.firstChild) {
 	    if (list1.firstChild.className = "sample") {
-		console.log("First child:");
-		console.log(list1.firstChild);
-		console.log(list1.firstChild.id);
 		if (typeof(list1.firstChild.id) != 'undefined') {
 		    samples[list1.firstChild.id].score += score_to_give;
 		    score_to_give -= 1;
@@ -23,6 +20,17 @@ var updateOrder = function(samples) {
 	    list1.removeChild(list1.firstChild);	    
 	}
 	   
+	var rejected_list1 = document.getElementById('rejected_list1');
+	while (rejected_list1.firstChild) {
+	    if (rejected_list1.firstChild.className = "sample") {
+		if (typeof(rejected_list1.firstChild.id) != 'undefined') {
+		    samples[rejected_list1.firstChild.id].score = -100;
+		}
+	    }
+	    rejected_list1.removeChild(rejected_list1.firstChild);	    
+	}	
+
+
 	updateAllSamplesList();
 
 	while (grand_list.firstChild) {
