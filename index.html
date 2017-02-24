@@ -5,8 +5,18 @@ body {background-color: powderblue;}
 
 h1   {color: blue;}
 
-.allsamples, .listwrapper, .finalorder {
-    width: 300px;
+.colwrapper {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+    padding : 5px;
+      margin: 5px;
+      border : 1px dotted black;
+
+}
+
+.allsamples, .listwrapper, .finalorderlist {
+    width: 90%;
     display: inline-block;
     border: 1px dotted black;
     background-color: aliceblue;
@@ -26,80 +36,74 @@ ul   {border : 1px solid black;
       background : yellow;
       border : 1px dotted black;}
 
-.samplediv  {display: inline-block; margin-bottom: 25px;}
-
+.samplediv  { margin-bottom: 12px;
+              background-color: white;
+}
+.samplescore  { margin-left: 12px; 
+                background-color: pink;
+                padding: 3px;
+}
 
 </style>
 </head>
 <body>
+
+<div class=colwrapper>
 <h2>Kaikki näytteet</h2>
 
 <div id="allsamples">
 </div>
+</div>
 
-
-<h2>Järjestä näytteet hyvyysjärjestykseen lausumisen mukaan:</h2>
+<div class=colwrapper>
+<h2>Järjestä näytteet hyvyysjärjestykseen:</h2>
 
 <div class="listwrapper">
+  <p> Kierros <span id="round">1</span> Testi <span id="test">1</span></p>
   <p class=center>Paras</p>
   <ul id="phonetics_list1">
   </ul>
-  <p class=center>Huonoin</p>
+  <p class=center>Huonoin
+<br><br>
+<input type=button value="Valmis" onclick='updateOrder(samples)'>
+</p>
 </div>
 
-<div class="listwrapper">
-  <p class=center>Paras</p>
-  <ul id="phonetics_list2">
-  </ul>
-  <p class=center>Huonoin</p>			    
 </div>
 
-
-<div class="listwrapper">
-  <p class=center>Paras</p>
-  <ul id="phonetics_list3">
-  </ul>
-  <p class=center>Huonoin</p>
-</div>
-
-
-<h2>Järjestä näytteet hyvyysjärjestykseen sisällön mukaan:</h2>
-
-<div class="listwrapper">
-<p class=center>Paras</p>
-<ul id="content_list1">
-</ul>
-<p class=center>Huonoin</p>
-</div>
-
-
-<div class="listwrapper">
-<p class=center>Paras</p>
-<ul id="content_list2">
-</ul>
-<p class=center>Huonoin</p>
-</div>
-
-
-<div class="listwrapper">
-<p class=center>Paras</p>
-<ul id="content_list3">
-</ul>
-<p class=center>Huonoin</p>
-</div>
-
+<div class=colwrapper>
 
 <h2>Uusi uljas järjestys</h2>
 
 
-<div id="finalorder">
-<ul id="finalorderlist">
-</ul>
+<div id="finalorderlist">
+</div>
 </div>
 
 
 <script type="text/javascript">
   lists_ready = false;
+
+
+var samples=[
+    {id: 0, audio: "01.wav", text: "jag gilla jag tycker att staden är bättre eftersom det *garbage* finns många människor där och jag är inte så natur person", score: 0},
+    {id: 1, audio: "02.wav", text: "*garbage*", score: 0},
+    {id: 2, audio: "03.wav", text: "jag tycker att i stad jag gillar inte", score: 0},
+    {id: 3, audio: "04.wav", text: "jag trivs bättre på stadet eftersom där är alla saker likasom skola och kläder affärer", score: 0},
+    {id: 4, audio: "05.wav", text: "hmm jag trivs på landet och stan *garbage* men *garbage* nu lever jag sa- öö i stan men jag tycker att det öö trevlig att bo landet också öö det är så öö det är så kul där och *garbage*", score: 0},    
+    {id: 5, audio: "06.wav", text: "ää jag tycker om stan mer en eftersom alla so nära", score: 0},
+    {id: 6, audio: "07.wav", text: "jag trivs på landet därför att det är så lungt och man kan vara ensam *garbage* man vill vara ens-", score: 0},
+    {id: 7, audio: "08.wav", text: "mm på stan är det trevligt", score: 0},
+    {id: 8, audio: "09.wav", text: "Tjag gillar mera att bo i stan eftersom det där är här är många affärer och människor här", score: 0},
+    {id: 9, audio: "10.wav", text: "jag gillar stan bättre eftersom jag är allergisk mot många djur så det är öö öö bra i en stan *garbage*", score: 0},    
+    {id: 10, audio: "11.wav", text: "aa jag bor i stan eftersom jag tycker det har något att göra och så jag har många vänner där och så", score: 0},
+    {id: 11, audio: "12.wav", text: "på landet det är trevlig", score: 0},
+    {id: 12, audio: "13.wav", text: "i stan", score: 0},
+    {id: 13, audio: "14.wav", text: "mm jag jag jag tycker att eftersom det är staden mycket trevliga *garbage* att leva", score: 0},
+    {id: 14, audio: "15.wav", text: "*garbage*", score: 0},    
+]
+
+
 </script>
 
 <script src="node_modules/sortablejs/Sortable.js"></script>
